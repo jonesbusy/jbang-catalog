@@ -13,10 +13,10 @@
         "/^jbang-catalog\\.json$/"
       ],
       "matchStrings": [
-        "https://repo\\.maven\\.apache\\.org/maven2/io/github/jonesbusy/(?<artifact>[^/]+)/(?<currentValue>[^/]+)/[^\" ]+-runner\\.jar"
+        "https://repo\\.maven\\.apache\\.org/maven2/io/github/jonesbusy/(?<artifact>[A-Za-z0-9._-]+)/(?<currentValue>[0-9][A-Za-z0-9._+-]*)/[^/\" ]+-runner\\.jar"
       ],
       "datasourceTemplate": "maven",
-      "packageNameTemplate": "io.github.jonesbusy.{{{artifact}}}"
+      "depNameTemplate": "io.github.jonesbusy.{{{artifact}}}"
     }
   ],
   "packageRules": [
