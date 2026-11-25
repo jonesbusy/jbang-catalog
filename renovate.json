@@ -1,0 +1,33 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":configMigration",
+    "helpers:pinGitHubActionDigests"
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Update Maven runner JAR versions in JBang aliases",
+      "managerFilePatterns": [
+        "/^jbang-catalog\\.json$/"
+      ],
+      "matchStrings": [
+        "https://repo\\.maven\\.apache\\.org/maven2/io/github/jonesbusy/(?<artifact>[^/]+)/(?<currentValue>[^/]+)/[^\" ]+-runner\\.jar"
+      ],
+      "datasourceTemplate": "maven",
+      "packageNameTemplate": "io.github.jonesbusy.{{{artifact}}}"
+    }
+  ],
+  "packageRules": [
+    {
+      "matchDatasources": [
+        "maven"
+      ],
+      "matchPackageNames": [
+        "io.github.jonesbusy/**"
+      ],
+      "enabled": true
+    }
+  ]
+}
